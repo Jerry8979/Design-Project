@@ -1,0 +1,8 @@
+body { margin:0; height:100vh; display:grid; place-items:center; background:#f8f9fa; font-family:system-ui; }
+.card { background:white; border-radius:16px; padding:40px; box-shadow:0 10px 30px rgba(0,0,0,0.1); text-align:center; }
+.time { font-size:25px; color:#333; font-weight:300; }
+.values { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin:30px 0; }
+.box { background:#f1f3f5; border-radius:12px; padding:20px; }
+.val { font-size:40px; font-weight:800; color:#2d3748; }
+.label { font-size:18px; color:#718096; }
+button { background:#4c51bf; color:white; border:none; padding:12px 32px; border-radius:50px; cursor:pointer; font-weight:600; }

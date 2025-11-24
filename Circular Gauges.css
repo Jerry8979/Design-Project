@@ -1,0 +1,10 @@
+body { background:#121212; color:#fff; font-family:Arial; display:grid; place-items:center; height:100vh; margin:0; }
+.card { display:flex; flex-direction:column; align-items:center; gap:30px; }
+.values { display:flex; gap:40px; }
+.box {
+  width:160px; height:160px; border-radius:50%; background:conic-gradient(#4caf50 0% 70%, #333 70% 100%);
+  display:grid; place-items:center; position:relative; box-shadow:0 0 20px rgba(0,0,0,0.6);
+}
+.box::after { content:''; width:130px; height:130px; background:#121212; border-radius:50%; }
+.val { position:absolute; font-size:28px; font-weight:bold; }
+button { background:#6200ea; color:white; border:none; padding:14px 40px; border-radius:30px; cursor:pointer; font-size:18px; }
