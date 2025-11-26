@@ -11,8 +11,8 @@
         <div class="side" id="div_cam" style="visibility: hidden;">
             <img width="450px" src="https://googly-enteric-noreen.ngrok-free.dev/video">
             <div class="side" id="div_chart" style="visibility: hidden; text-align: center;">
-                <iframe id="chart" width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.mathworks.com/channels/3138878/charts/1?key=VX25ECR2BGI603CW&bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=20&title=Title+A&type=line"></iframe>
-                <button id="next_chart" onclick="next_chart()">Next chart</button>
+                <iframe id="chart" width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.mathworks.com/channels/3138878/charts/1?key=VX25ECR2BGI603CW"></iframe>
+                <button id="next_chart" onclick="next_chart()">▶</button>
             </div>
         </div>
         
@@ -29,8 +29,8 @@
                 <button onclick="next()">▶</button>
             </div>
             <div style="display:flex; justify-content:space-between; align-items:center;">
-                <button id="show_left" onclick="showCam()">Show Camera</button>
-                <button id="show_right" onclick="showiFrame()">Show Charts</button> 
+                <button id="show_left" onclick="showCam()" title="Show Camera"><img src="camera-32.png"></button>
+                <button id="show_right" onclick="showiFrame()" title="Show Charts"><img src="chart-32.png"></button>
             </div>
         </div>
         
@@ -38,7 +38,8 @@
     </div>
 </body>
 <script>
-
+    //<button id="show_left" onclick="showCam()">Show Camera</button>
+    //<button id="show_right" onclick="showiFrame()">Show Charts</button> 
     const NUM_OF_RESULT = 10;
     let currentIndex = NUM_OF_RESULT - 1;
     let feeds = [];
@@ -80,7 +81,7 @@
     function next_chart() {
         currentChartIndex = (currentChartIndex + 1) % 3;
         const iframe = document.getElementById('chart');
-        const chartUrl = "https://thingspeak.mathworks.com/channels/3138878/charts/" + String(currentChartIndex + 1) +"?key=VX25ECR2BGI603CW&bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=20&title=Title+A&type=line";
+        const chartUrl = "https://thingspeak.mathworks.com/channels/3138878/charts/" + String(currentChartIndex + 1) +"?key=VX25ECR2BGI603CW";
         iframe.src = chartUrl;
     }
 
@@ -88,10 +89,10 @@
         const img = document.getElementById('div_cam');
         const Btn = document.getElementById('show_left');
         if (img.style.visibility === 'visible') {
-            Btn.innerText = 'Show Camera';
+            Btn.title = 'Show Camera';
             img.style.visibility = 'hidden';
         }else{
-            Btn.innerText = 'Hide Camera';
+            Btn.title = 'Hide Camera';
             img.style.visibility = 'visible';   
         }
     }
@@ -100,11 +101,10 @@
         const iframe = document.getElementById('div_chart');
         const Btn = document.getElementById('show_right');
         if (iframe.style.visibility === 'visible') {
-            Btn.innerText = 'Show Charts';
+            Btn.title = 'Show Charts';
             iframe.style.visibility = 'hidden';
-            
         }else{
-            Btn.innerText = 'Hide Charts';
+            Btn.title = 'Hide Charts';
             iframe.style.visibility = 'visible';   
         }
     }
